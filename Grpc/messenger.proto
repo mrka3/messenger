@@ -1,0 +1,45 @@
+syntax = "proto3";
+package Grpc;
+import "google/protobuf/empty.proto";
+
+message Message {
+  string Sender = 1;
+  string Target = 2;
+  string Text = 3;
+  bool IsPersonal = 4;
+}
+message User {
+  string Name = 1;
+  string Email = 2;
+}
+message UserCollection {
+  repeated User Users = 1;
+}
+message MessageId {
+  int64 Value = 1;
+}
+message ChangeMessageBody {
+  int64 MessageId = 1;
+  string Text = 2;
+}
+message MessageHistory {
+  int64 Id = 1;
+  string Text = 2;
+}
+message HistoryCollection {
+  repeated MessageHistory History = 1;
+}
+message GroupName {
+  string Name = 1;
+}
+service Messenger {
+  rpc AddMessage (Message) returns (MessageId);
+  rpc AuthorizeUser (User) returns (.google.protobuf.Empty);
+  rpc ReadMessage (MessageId) returns (.google.protobuf.Empty);
+  rpc ChangeTextMessage (ChangeMessageBody) returns (.google.protobuf.Empty);
+  rpc DeleteMessage (MessageId) returns (.google.protobuf.Empty);
+  rpc History(GroupName) returns (HistoryCollection);
+}
+service Users {
+  rpc GetUsers (.google.protobuf.Empty) returns (UserCollection);
+}

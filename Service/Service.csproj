@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AssemblyName>Messenger.Service</AssemblyName>
+        <RootNamespace>Messenger.Service</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Grpc\Grpc.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.7" />
+      <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Library.Storage.Logic">
+        <HintPath>..\..\library\Storage\Logic\bin\Debug\net9.0\Library.Storage.Logic.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

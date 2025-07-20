@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>Messenger.Grpc</AssemblyName>
+        <RootNamespace>Messenger.Grpc</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="messenger.proto" GrpcServices="Server" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Library.Storage.Abstractions">
+        <HintPath>..\..\library\Storage\Logic\bin\Debug\net9.0\Library.Storage.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Library.Storage.Logic">
+        <HintPath>..\..\library\Storage\Logic\bin\Debug\net9.0\Library.Storage.Logic.dll</HintPath>
+      </Reference>
+      <Reference Include="Library.Storage.Models">
+        <HintPath>..\..\library\Storage\Logic\bin\Debug\net9.0\Library.Storage.Models.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
